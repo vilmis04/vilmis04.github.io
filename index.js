@@ -1,7 +1,13 @@
 function converter(val) {
     let hex = [];
     let splitStr = val.split(",");
-    splitStr.map(item => { hex.push(parseInt(item).toString(16).toUpperCase()) });
+    splitStr.map(item => { 
+        let hexDigit = parseInt(item).toString(16).toUpperCase();
+        if(hexDigit.length == 1) {
+            hexDigit = "0"+hexDigit;
+        }
+        hex.push(hexDigit);
+    });
     hex = "#" + hex.join("");
     return (hex);
 }
